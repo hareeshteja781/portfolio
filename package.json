@@ -3,7 +3,6 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://hareeshteja781.github.io/portfolio/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

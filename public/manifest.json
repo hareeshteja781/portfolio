@@ -1,0 +1,16 @@
+{
+  "name": "Hareesh Teja Paruchuri | Software Engineer Portfolio",
+  "short_name": "Hareesh Portfolio",
+  "description": "Premium portfolio website for Hareesh Teja Paruchuri, a software engineer focused on full stack development and modern web applications.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07111f",
+  "theme_color": "#35d5ff",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}

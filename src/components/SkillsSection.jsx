@@ -59,13 +59,27 @@ const iconMap = {
   'CRUD Operations': { icon: 'fa-list-check', prefix: 'fa-solid' },
   'JWT Authentication': { icon: 'fa-lock', prefix: 'fa-solid' }
 };
+const TILT_CONFIG = { max: 10, speed: 400, glare: true, 'max-glare': 0.22 };
 
 function SkillsSection() {
   const tiltRefs = useRef([]);
 
   useEffect(() => {
     const elements = tiltRefs.current.filter(Boolean);
-    elements.forEach((el) => VanillaTilt.init(el, { max: 10, speed: 400, glare: true, 'max-glare': 0.22 }));
+    elements.forEach((el) => {
+      if (el.vanillaTilt) {
+        el.vanillaTilt.destroy();
+      }
+      VanillaTilt.init(el, TILT_CONFIG);
+    });
+
+    return () => {
+      elements.forEach((el) => {
+        if (el.vanillaTilt) {
+          el.vanillaTilt.destroy();
+        }
+      });
+    };
   }, []);
 
   return (

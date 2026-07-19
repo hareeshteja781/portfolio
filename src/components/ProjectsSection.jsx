@@ -31,8 +31,8 @@ const projects = [
     description: 'Developed a Full Stack Employee Management System using Python, Flask, MySQL, HTML, CSS and JavaScript.',
     technologies: ['Python', 'Flask', 'MySQL', 'HTML5', 'CSS3', 'JavaScript', 'REST APIs', 'Git'],
     features: ['CRUD Operations', 'Employee Search', 'Authentication', 'Session Management', 'Database Optimization', 'Professional UI'],
-    liveUrl: 'https://example.com',
-    repoUrl: 'https://example.com',
+    liveUrl: 'https://github.com/hareeshteja781',
+    repoUrl: 'https://github.com/hareeshteja781',
     overview: 'An employee management portal for handling records, search, and administration in a professional and organized manner.',
     problem: 'Organizations needed a simple system to keep employee data structured and accessible.',
     architecture: 'Flask application with a relational MySQL database and a responsive UI for day-to-day administrative work.',
@@ -44,6 +44,7 @@ const projects = [
 ];
 
 const filters = ['All'];
+const TILT_CONFIG = { max: 10, speed: 400, glare: true, 'max-glare': 0.18 };
 
 function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -52,8 +53,32 @@ function ProjectsSection() {
 
   useEffect(() => {
     const elements = tiltRefs.current.filter(Boolean);
-    elements.forEach((el) => VanillaTilt.init(el, { max: 10, speed: 400, glare: true, 'max-glare': 0.18 }));
+    elements.forEach((el) => {
+      if (el.vanillaTilt) {
+        el.vanillaTilt.destroy();
+      }
+      VanillaTilt.init(el, TILT_CONFIG);
+    });
+
+    return () => {
+      elements.forEach((el) => {
+        if (el.vanillaTilt) {
+          el.vanillaTilt.destroy();
+        }
+      });
+    };
   }, [activeFilter]);
+
+  useEffect(() => {
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setActiveProject(null);
+      }
+    };
+
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, []);
 
   const filteredProjects = useMemo(() => {
     if (activeFilter === 'All') return projects;
@@ -76,7 +101,7 @@ function ProjectsSection() {
 
       <div className="filter-row" data-aos="fade-up">
         {filters.map((filter) => (
-          <button key={filter} className={`filter-chip ${activeFilter === filter ? 'active' : ''}`} onClick={() => setActiveFilter(filter)}>
+          <button type="button" key={filter} className={`filter-chip ${activeFilter === filter ? 'active' : ''}`} onClick={() => setActiveFilter(filter)} aria-pressed={activeFilter === filter}>
             {filter}
           </button>
         ))}
@@ -92,7 +117,7 @@ function ProjectsSection() {
             ref={(el) => (tiltRefs.current[index] = el)}
           >
             <div className="project-media">
-              <img src={project.image} alt={project.title} />
+              <img src={project.image} alt={project.title} loading="lazy" decoding="async" />
               <span className="project-badge">{project.badge}</span>
             </div>
             <div className="project-body">
@@ -106,7 +131,7 @@ function ProjectsSection() {
               <div className="project-actions">
                 <a href={project.liveUrl} target="_blank" rel="noreferrer" className="btn primary small" aria-label={`Open live demo for ${project.title}`}>Live Demo</a>
                 <a href={project.repoUrl} target="_blank" rel="noreferrer" className="btn secondary small" aria-label={`Open GitHub repository for ${project.title}`}>GitHub</a>
-                <button className="btn tertiary small" onClick={() => setActiveProject(project)} aria-label={`View details for ${project.title}`}>View Details</button>
+                <button type="button" className="btn tertiary small" onClick={() => setActiveProject(project)} aria-label={`View details for ${project.title}`}>View Details</button>
               </div>
             </div>
           </article>
@@ -116,7 +141,7 @@ function ProjectsSection() {
       {activeProject && (
         <div className="modal-backdrop" onClick={() => setActiveProject(null)} role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
           <div className="project-modal" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={() => setActiveProject(null)} aria-label="Close project details"><i className="fa-solid fa-xmark" /></button>
+            <button type="button" className="modal-close" onClick={() => setActiveProject(null)} aria-label="Close project details"><i className="fa-solid fa-xmark" /></button>
             <div className="modal-content">
               <div className="modal-hero">
                 <div>

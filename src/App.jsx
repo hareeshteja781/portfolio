@@ -30,6 +30,7 @@ const cards = [
 ];
 
 const techIcons = ['fa-python', 'fa-react', 'fa-node-js', 'fa-database', 'fa-js', 'fa-git-alt'];
+const TILT_CONFIG = { max: 10, speed: 400, glare: true, 'max-glare': 0.16 };
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -47,14 +48,14 @@ function App() {
     AOS.init({ duration: 900, once: true, offset: 80 });
 
     const typing = new Typed(typedRef.current, {
-      strings: ['Software Engineer', 'Full Stack Developer', 'Python Developer', 'Flask Developer', 'React Developer', 'Problem Solver'],
+      strings: ['Software Engineer', 'Python Full Stack Developer', 'React Developer', 'Flask Developer', 'Backend Developer'],
       typeSpeed: 70,
       backSpeed: 50,
       backDelay: 1000,
       loop: true
     });
 
-    const timeout = setTimeout(() => setIsLoaded(true), 1800);
+    const timeout = setTimeout(() => setIsLoaded(true), 1000);
     return () => {
       typing.destroy();
       clearTimeout(timeout);
@@ -63,7 +64,20 @@ function App() {
 
   useEffect(() => {
     const elements = tiltRefs.current.filter(Boolean);
-    elements.forEach((el) => VanillaTilt.init(el, { max: 10, speed: 400, glare: true, 'max-glare': 0.16 }));
+    elements.forEach((el) => {
+      if (el.vanillaTilt) {
+        el.vanillaTilt.destroy();
+      }
+      VanillaTilt.init(el, TILT_CONFIG);
+    });
+
+    return () => {
+      elements.forEach((el) => {
+        if (el.vanillaTilt) {
+          el.vanillaTilt.destroy();
+        }
+      });
+    };
   }, []);
 
   useEffect(() => {
@@ -92,18 +106,18 @@ function App() {
         <div className="scroll-progress" />
         <header className="navbar" id="home">
           <a href="#home" className="brand" aria-label="Go to home section">HT</a>
-          <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu" aria-expanded={menuOpen}>
+          <button type="button" className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu" aria-expanded={menuOpen} aria-controls="primary-navigation">
             <i className={`fa-solid ${menuOpen ? 'fa-xmark' : 'fa-bars'}`} />
           </button>
-          <nav className={`nav-links ${menuOpen ? 'open' : ''}`} aria-label="Primary navigation">
+          <nav id="primary-navigation" className={`nav-links ${menuOpen ? 'open' : ''}`} aria-label="Primary navigation">
             {navLinks.map((link) => (
               <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)}>
                 {link.label}
               </a>
             ))}
-            <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
-            <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
-            <button className="theme-toggle" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
+            <a href="https://github.com/hareeshteja781" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/hareeshteja-paruchuri-385b7535b/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <button type="button" className="theme-toggle" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'} aria-pressed={theme === 'dark'}>
               <i className={`fa-solid ${theme === 'dark' ? 'fa-sun' : 'fa-moon'}`} />
             </button>
           </nav>
@@ -123,19 +137,19 @@ function App() {
                 I’m a passionate software engineer focused on building full-stack web applications, solving meaningful problems, and crafting modern digital experiences with clean, scalable code.
               </p>
               <div className="hero-actions">
-                <button className="btn primary" onClick={handleHireMe} aria-label="Open email to hire Hareesh">Hire Me</button>
-                <a className="btn secondary" href="#why-hire-me">View Projects</a>
+                <button type="button" className="btn primary" onClick={handleHireMe} aria-label="Open email to hire Hareesh">Hire Me</button>
+                <a className="btn secondary" href="#projects">View Projects</a>
                 <a className="btn tertiary" href="mailto:hareeshtejaparuchuri@gmail.com">Contact Me</a>
               </div>
               <div className="social-row">
-                <a href="https://github.com" target="_blank" rel="noreferrer"><i className="fa-brands fa-github" /> GitHub</a>
-                <a href="https://www.linkedin.com" target="_blank" rel="noreferrer"><i className="fa-brands fa-linkedin" /> LinkedIn</a>
+                <a href="https://github.com/hareeshteja781" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-github" /> GitHub</a>
+                <a href="https://www.linkedin.com/in/hareeshteja-paruchuri-385b7535b/" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-linkedin" /> LinkedIn</a>
                 <a href="mailto:hareeshtejaparuchuri@gmail.com"><i className="fa-solid fa-envelope" /> Email</a>
               </div>
             </div>
             <div className="hero-visual" data-aos="zoom-in" data-aos-delay="150">
               <div className="profile-card" ref={(el) => (tiltRefs.current[0] = el)} role="img" aria-label="Portrait photo of Hareesh Teja Paruchuri">
-                <img className="profile-image" src="/profile.jpg" alt="Hareesh Teja Paruchuri" />
+                <img className="profile-image" src="/profile.jpg" alt="Hareesh Teja Paruchuri" loading="eager" decoding="async" fetchpriority="high" />
                 <div className="profile-glow" />
               </div>
               {techIcons.map((icon, index) => (

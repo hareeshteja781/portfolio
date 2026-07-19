@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import SectionHeading from './common/SectionHeading';
 import { sendPortfolioEmail } from '../services/emailService';
 
@@ -20,6 +20,7 @@ function ContactSection() {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [status, setStatus] = useState('');
   const [isSending, setIsSending] = useState(false);
+  const toastTimeoutRef = useRef(null);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -27,9 +28,21 @@ function ContactSection() {
   };
 
   const showToast = (message) => {
+    if (toastTimeoutRef.current) {
+      clearTimeout(toastTimeoutRef.current);
+    }
+
     setStatus(message);
-    setTimeout(() => setStatus(''), 2500);
+    toastTimeoutRef.current = setTimeout(() => setStatus(''), 2500);
   };
+
+  useEffect(() => {
+    return () => {
+      if (toastTimeoutRef.current) {
+        clearTimeout(toastTimeoutRef.current);
+      }
+    };
+  }, []);
 
   const copyValue = async (value) => {
     try {
@@ -105,7 +118,7 @@ function ContactSection() {
                   )}
                 </div>
                 {card.copy && (
-                  <button className="copy-btn" onClick={() => copyValue(card.value)}>
+                  <button type="button" className="copy-btn" onClick={() => copyValue(card.value)} aria-label={`Copy ${card.title}`}>
                     <i className="fa-regular fa-copy" />
                   </button>
                 )}
@@ -143,15 +156,15 @@ function ContactSection() {
             <textarea name="message" value={formData.message} onChange={handleChange} placeholder="Write your message here" rows="6" aria-label="Message" />
           </label>
           <div className="form-actions">
-            <button type="submit" className="btn primary" disabled={isSending}>
+            <button type="submit" className="btn primary" disabled={isSending} aria-label="Send contact message">
               {isSending ? 'Sending...' : 'Send Message'}
             </button>
-            <button type="button" className="btn secondary" onClick={() => setFormData({ name: '', email: '', subject: '', message: '' })}>Clear Form</button>
+            <button type="button" className="btn secondary" onClick={() => setFormData({ name: '', email: '', subject: '', message: '' })} aria-label="Clear contact form">Clear Form</button>
           </div>
         </form>
       </div>
 
-      {status && <div className="toast">{status}</div>}
+      {status && <div className="toast" aria-live="polite">{status}</div>}
     </section>
   );
 }

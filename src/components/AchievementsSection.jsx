@@ -2,10 +2,7 @@ import { useEffect, useState } from 'react';
 import SectionHeading from './common/SectionHeading';
 
 const achievements = [
-  { icon: 'fa-briefcase', value: '2+', label: 'Projects Completed' },
-  { icon: 'fa-layer-group', value: '15+', label: 'Technologies Learned' },
-  { icon: 'fa-code-branch', value: '2+', label: 'GitHub Repositories' },
-  { icon: 'fa-rocket', value: '1+', label: 'Deployment Projects' }
+  { icon: 'fa-code', value: '100+', label: 'LeetCode Challenges Solved' }
 ];
 
 function AchievementsSection() {

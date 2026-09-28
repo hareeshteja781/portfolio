@@ -23,10 +23,10 @@ const navLinks = [
 ];
 
 const cards = [
-  { icon: 'fa-lightbulb', title: 'Problem Solving', text: 'Turning complex ideas into elegant, reliable solutions with calm focus.' },
-  { icon: 'fa-layer-group', title: 'Full Stack Development', text: 'Building scalable web experiences across frontend, backend, and APIs.' },
-  { icon: 'fa-code', title: 'Clean Code', text: 'Writing maintainable, readable, and high-quality code that stands the test of time.' },
-  { icon: 'fa-rocket', title: 'Continuous Learning', text: 'Eager to adapt, grow, and master emerging tools and practices.' }
+  { icon: 'fa-lightbulb', title: 'Problem Solving', text: 'Analytical problem-solving with a focus on clean, maintainable software solutions.' },
+  { icon: 'fa-brain', title: 'Analytical Thinking', text: 'Strong analytical thinking across algorithms, APIs, databases, and software projects.' },
+  { icon: 'fa-comments', title: 'Communication', text: 'Clear communication skills supported by collaboration and project-based development.' },
+  { icon: 'fa-people-group', title: 'Team Collaboration', text: 'Collaborative approach with adaptability, time management, and willingness to learn.' }
 ];
 
 const techIcons = ['fa-python', 'fa-react', 'fa-node-js', 'fa-database', 'fa-js', 'fa-git-alt'];
@@ -48,7 +48,7 @@ function App() {
     AOS.init({ duration: 900, once: true, offset: 80 });
 
     const typing = new Typed(typedRef.current, {
-      strings: ['Software Engineer', 'Python Full Stack Developer', 'React Developer', 'Flask Developer', 'Backend Developer'],
+      strings: ['Software Developer', 'Full-Stack Web Developer', 'Python Developer', 'Backend Developer'],
       typeSpeed: 70,
       backSpeed: 50,
       backDelay: 1000,
@@ -134,7 +134,7 @@ function App() {
                 <span ref={typedRef} />
               </p>
               <p className="intro">
-                I’m a passionate software engineer focused on building full-stack web applications, solving meaningful problems, and crafting modern digital experiences with clean, scalable code.
+                Detail-oriented Computer Science graduate with strong core foundations in Data Structures, Algorithms, Object-Oriented Design, and Full-Stack Web Development. Experienced in building responsive web applications, designing RESTful APIs, and implementing database schemas through end-to-end software projects.
               </p>
               <div className="hero-actions">
                 <button type="button" className="btn primary" onClick={handleHireMe} aria-label="Open email to hire Hareesh">Hire Me</button>
@@ -170,7 +170,7 @@ function App() {
               title="Passionate about building meaningful digital experiences."
             />
             <p>
-              I’m a passionate Software Engineer with a strong interest in full stack development, scalable web applications, and continuous learning. I enjoy turning ideas into polished products through clean architecture, thoughtful problem solving, and modern technologies. My goal is to create experiences that are not only functional but also impactful, maintainable, and delightful to use.
+              Analytical problem-solver proficient in clean code practices, automated unit testing, and Git version control, eager to drive tangible value as an entry-level Software Developer.
             </p>
           </section>
 
@@ -201,7 +201,7 @@ function App() {
                 <i className="fa-solid fa-file-pdf" />
               </div>
               <h3>Hareesh Teja Resume</h3>
-              <p>I’m available for full-stack and software engineering opportunities across web applications, APIs, and product-focused development.</p>
+              <p>Entry-level Software Developer focused on Full-Stack Web Development, RESTful APIs, databases, and AI/ML-integrated software projects.</p>
               <div className="resume-actions">
                 <a className="btn primary" href="/Hareesh_Teja_Resume.pdf" download aria-label="Download Hareesh Teja Resume PDF">
                   <i className="fa-solid fa-download" /> Download Resume

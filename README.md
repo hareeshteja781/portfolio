@@ -1,15 +1,25 @@
-# Hareesh Teja Portfolio
-Live Demo-https://portfolio-seven-kohl-adfc1eiwjt.vercel.app/
+# Hareesh Teja Paruchuri Portfolio
+Portfolio: https://hareeshteja.vercel.app/
 
-A modern React + Vite portfolio website for Hareesh Teja Paruchuri.
+A modern React + Vite portfolio website for Hareesh Teja Paruchuri, showcasing full-stack web development, RESTful APIs, databases, DevOps, and AI/ML-integrated software projects.
+
+## Featured Projects
+
+- Hook Pulse — Distributed Webhook Gateway & Reliability Proxy
+  - January 2026 – July 2026
+  - Python, FastAPI, React.js, PostgreSQL, Redis, WebSockets, Docker
+- AI Customer Support Bot & Automated Ticket Manager
+  - September 2025 – December 2025
+  - Python, FastAPI, PostgreSQL, REST APIs, LLMs
+  - GitHub: https://github.com/hareeshteja781/AI-Customer-Support-Bot-Ticket-management-system
 
 ## Features
 
 - Responsive personal portfolio layout
-- Sections for about, skills, projects, education, certifications, achievements, and contact
+- Sections for professional summary, skills, projects, education, certifications, achievements, and contact
 - Animated UI with AOS and Typed.js
 - Theme toggle and smooth scrolling
-- Ready for deployment to GitHub Pages
+- Resume download section
 
 ## Tech Stack
 
@@ -30,7 +40,7 @@ A modern React + Vite portfolio website for Hareesh Teja Paruchuri.
    ```bash
    npm run dev
    ```
-3. Open the local URL shown in the terminal (usually http://localhost:3000)
+3. Open the local URL shown in the terminal.
 
 ## Build
 
@@ -38,20 +48,10 @@ A modern React + Vite portfolio website for Hareesh Teja Paruchuri.
 npm run build
 ```
 
-## Deployment
-
-To publish to GitHub Pages:
-
-```bash
-npm run deploy
-```
-
-This uses the Vite build output in the `dist` folder and publishes it to the `gh-pages` branch.
-
 ## Project Structure
 
 - `src/` - React components and styles
-- `public/` - Static assets such as images, manifest, favicon, and resume PDF
+- `public/` - Static assets such as profile image and resume PDF
 - `index.html` - HTML entry point
 - `vite.config.js` - Vite configuration
 
@@ -60,3 +60,5 @@ This uses the Vite build output in the `dist` folder and publishes it to the `gh
 Email: hareeshtejaparuchuri@gmail.com
 
 GitHub: https://github.com/hareeshteja781
+
+LinkedIn: https://www.linkedin.com/in/hareeshteja

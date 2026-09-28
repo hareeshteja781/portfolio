@@ -5,41 +5,43 @@ import SectionHeading from './common/SectionHeading';
 const projects = [
   {
     id: 1,
-    title: 'Task Management System',
+    title: 'Hook Pulse — Distributed Webhook Gateway & Reliability Proxy',
     category: 'Full Stack',
     badge: 'Featured',
     image: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80',
-    description: 'Developed a Full Stack Task Management System using Python, Flask, SQLite, HTML, CSS and JavaScript.',
-    technologies: ['Python', 'Flask', 'SQLite', 'HTML5', 'CSS3', 'JavaScript', 'REST API', 'Git', 'GitHub'],
-    features: ['Authentication', 'CRUD Operations', 'Dashboard', 'Search', 'Filters', 'Sorting', 'Responsive UI', 'REST APIs', 'Secure Database', 'Professional Design'],
-    liveUrl: 'https://task-manager-5t2o.onrender.com/login',
-    repoUrl: 'https://github.com/hareeshteja781/task-manager',
-    overview: 'A modern task management platform designed to help users organize work, track progress, and manage priorities with ease.',
-    problem: 'Users needed a simple, responsive system to manage tasks without sacrificing clarity or performance.',
-    architecture: 'Flask backend with SQLite storage and a modular frontend built with vanilla JavaScript and modern CSS.',
-    challenges: 'Delivering a clean UI while keeping the app lightweight, secure, and easy to use across devices.',
-    solutions: 'Implemented modular routes, REST-based endpoints, and polished responsive screens with intuitive interactions.',
-    learning: 'Improved my understanding of backend design, authentication flows, and creating maintainable full-stack applications.',
-    future: 'Add team collaboration, notifications, and drag-and-drop task boards.'
+    dates: 'January 2026 – July 2026',
+    description: 'Built an asynchronous webhook gateway with HMAC-SHA256 verification, idempotency checks, and Redis Streams for reliable, non-blocking event ingestion.',
+    technologies: ['Python', 'FastAPI', 'React.js', 'PostgreSQL', 'Redis', 'WebSockets', 'Docker'],
+    features: ['HMAC-SHA256 Verification', 'Idempotency Checks', 'Redis Streams', 'Background Workers', 'Exponential Backoff Retries', 'Timeout Handling', 'Dead-Letter Queue (DLQ)', 'Redis Pub/Sub', 'WebSockets', 'Monaco Editor Replay Console'],
+    liveUrl: '',
+    repoUrl: '',
+    overview: 'Distributed webhook gateway and reliability proxy with asynchronous ingestion, reliable delivery, real-time monitoring, and replay.',
+    problem: 'Reliable event ingestion and delivery with retries, failure handling, monitoring, and replay capabilities.',
+    architecture: 'Python and FastAPI services with Redis Streams, background workers, Redis Pub/Sub, WebSockets, PostgreSQL, and Docker.',
+    challenges: 'Reliable event ingestion, idempotency, delivery retries, timeout handling, failed-event processing, and real-time monitoring.',
+    solutions: 'Implemented HMAC-SHA256 verification, idempotency checks, HTTP delivery, exponential backoff retries, timeout handling, DLQ support, Redis Pub/Sub, WebSockets, and a Monaco Editor replay console.',
+    learning: 'Strengthened experience in distributed event processing, reliability patterns, real-time systems, and full-stack development.',
+    future: 'Continue extending the webhook gateway and reliability workflow.'
   },
   {
     id: 2,
-    title: 'Employee Management System',
-    category: 'Full Stack',
-    badge: 'Premium',
+    title: 'AI Customer Support Bot & Automated Ticket Manager',
+    category: 'AI / Backend',
+    badge: 'AI Project',
     image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80',
-    description: 'Developed a Full Stack Employee Management System using Python, Flask, MySQL, HTML, CSS and JavaScript.',
-    technologies: ['Python', 'Flask', 'MySQL', 'HTML5', 'CSS3', 'JavaScript', 'REST APIs', 'Git'],
-    features: ['CRUD Operations', 'Employee Search', 'Authentication', 'Session Management', 'Database Optimization', 'Professional UI'],
-    liveUrl: 'https://github.com/hareeshteja781',
-    repoUrl: 'https://github.com/hareeshteja781',
-    overview: 'An employee management portal for handling records, search, and administration in a professional and organized manner.',
-    problem: 'Organizations needed a simple system to keep employee data structured and accessible.',
-    architecture: 'Flask application with a relational MySQL database and a responsive UI for day-to-day administrative work.',
-    challenges: 'Balancing usability with strong backend validation and secure session handling.',
-    solutions: 'Built modular routes, secure authentication, and optimized database queries for reliable operations.',
-    learning: 'Strengthened my experience in session-based auth, database design, and operational reliability.',
-    future: 'Introduce dashboards, role-based access, and reporting features.'
+    dates: 'September 2025 – December 2025',
+    description: 'Architected and deployed a customer support automation platform leveraging FastAPI and LLMs, resolving over 76% of common tier-1 support queries autonomously.',
+    technologies: ['Python', 'FastAPI', 'PostgreSQL', 'REST APIs', 'LLMs'],
+    features: ['LLM Intent Classification', 'Priority Tags', 'Human-Agent Escalation', 'Asynchronous REST APIs', 'Pydantic Schema Validation', 'Ticket Lifecycle Management', 'User Authentication', 'Real-Time State Synchronization', 'Normalized PostgreSQL Schemas', 'Indexed Foreign Keys'],
+    liveUrl: '',
+    repoUrl: 'https://github.com/hareeshteja781/AI-Customer-Support-Bot-Ticket-management-system',
+    overview: 'Customer support automation platform using FastAPI and LLMs for autonomous tier-1 query resolution and automated ticket management.',
+    problem: 'Automate common tier-1 support queries and ticket workflows while routing escalated cases to human agents.',
+    architecture: 'FastAPI REST APIs with Pydantic validation, LLM-based intent classification, PostgreSQL relational schemas, authentication, and real-time state synchronization.',
+    challenges: 'Automated query resolution, ticket triage, priority assignment, escalation routing, and historical ticket tracking.',
+    solutions: 'Implemented LLM-based intent classification, priority tagging, human-agent escalation, asynchronous RESTful endpoints, Pydantic validation, and normalized indexed PostgreSQL schemas.',
+    learning: 'Strengthened experience in LLM integration, workflow automation, asynchronous APIs, authentication, and relational database design.',
+    future: 'Continue improving support automation and ticket-management workflows.'
   }
 ];
 
@@ -122,6 +124,7 @@ function ProjectsSection() {
             </div>
             <div className="project-body">
               <h3>{project.title}</h3>
+              <p className="project-meta">{project.dates}</p>
               <p>{project.description}</p>
               <div className="tech-badges">
                 {project.technologies.slice(0, 6).map((tech) => (
@@ -129,8 +132,12 @@ function ProjectsSection() {
                 ))}
               </div>
               <div className="project-actions">
-                <a href={project.liveUrl} target="_blank" rel="noreferrer" className="btn primary small" aria-label={`Open live demo for ${project.title}`}>Live Demo</a>
-                <a href={project.repoUrl} target="_blank" rel="noreferrer" className="btn secondary small" aria-label={`Open GitHub repository for ${project.title}`}>GitHub</a>
+                {project.liveUrl && (
+                  <a href={project.liveUrl} target="_blank" rel="noreferrer" className="btn primary small" aria-label={`Open live demo for ${project.title}`}>Live Demo</a>
+                )}
+                {project.repoUrl && (
+                  <a href={project.repoUrl} target="_blank" rel="noreferrer" className="btn secondary small" aria-label={`Open GitHub repository for ${project.title}`}>GitHub</a>
+                )}
                 <button type="button" className="btn tertiary small" onClick={() => setActiveProject(project)} aria-label={`View details for ${project.title}`}>View Details</button>
               </div>
             </div>

@@ -1,9 +1,9 @@
 import SectionHeading from './common/SectionHeading';
 
 const certificates = [
-  { title: 'Python Programming', provider: 'Udemy', icon: 'fa-python' },
-  { title: 'Full Stack Web Development', provider: 'Udemy', icon: 'fa-laptop-code' },
-  { title: 'SQL & Database Management', provider: 'Udemy', icon: 'fa-database' }
+  { title: 'Oracle Agentic AI Certified Foundations Associate', provider: 'Oracle University', icon: 'fa-robot' },
+  { title: 'Advanced Software Engineering Job Simulation', provider: 'Walmart Global Tech', icon: 'fa-code' },
+  { title: 'Introduction to Cloud', provider: 'Datacom', icon: 'fa-cloud' }
 ];
 
 function CertificationsSection() {

@@ -5,14 +5,14 @@ import { sendPortfolioEmail } from '../services/emailService';
 const contactCards = [
   { title: 'Phone', value: '+91 7816025937', icon: 'fa-phone', copy: true },
   { title: 'Email', value: 'hareeshtejaparuchuri@gmail.com', icon: 'fa-envelope', copy: true },
-  { title: 'Location', value: 'Khammam, Telangana, India', icon: 'fa-location-dot', copy: false },
+  { title: 'Location', value: 'Khammam, Telangana', icon: 'fa-location-dot', copy: false },
   { title: 'GitHub', value: 'https://github.com/hareeshteja781', icon: 'fa-github', copy: false, link: true },
-  { title: 'LinkedIn', value: 'https://www.linkedin.com/in/hareeshteja-paruchuri-385b7535b/', icon: 'fa-linkedin', copy: false, link: true }
+  { title: 'LinkedIn', value: 'https://www.linkedin.com/in/hareeshteja', icon: 'fa-linkedin', copy: false, link: true }
 ];
 
 const socialLinks = [
   { label: 'GitHub', icon: 'fa-github', url: 'https://github.com/hareeshteja781' },
-  { label: 'LinkedIn', icon: 'fa-linkedin', url: 'https://www.linkedin.com/in/hareeshteja-paruchuri-385b7535b/' },
+  { label: 'LinkedIn', icon: 'fa-linkedin', url: 'https://www.linkedin.com/in/hareeshteja' },
   { label: 'Gmail', icon: 'fa-envelope', url: 'mailto:hareeshtejaparuchuri@gmail.com' }
 ];
 

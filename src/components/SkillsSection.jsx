@@ -5,59 +5,61 @@ import SectionHeading from './common/SectionHeading';
 const skillGroups = [
   {
     title: 'Programming Languages',
-    items: ['Python', 'SQL', 'JavaScript']
+    items: ['Python', 'JavaScript', 'SQL']
   },
   {
-    title: 'Frontend',
-    items: ['HTML5', 'CSS3', 'JavaScript', 'React.js', 'Next.js']
+    title: 'Software Development & Web/Backend',
+    items: ['FastAPI', 'React.js', 'REST APIs', 'JWT Authentication', 'Pydantic', 'HTML5', 'CSS3']
   },
   {
-    title: 'Backend',
-    items: ['Python', 'Flask', 'Node.js', 'Express.js', 'REST APIs']
+    title: 'Databases & Cloud & Messaging',
+    items: ['PostgreSQL', 'MySQL', 'AWS', 'Redis', 'Redis Streams', 'Redis Pub/Sub']
   },
   {
-    title: 'Database',
-    items: ['MySQL', 'PostgreSQL']
+    title: 'DevOps & Version Control',
+    items: ['Git', 'GitHub', 'Docker', 'CI/CD Pipelines']
   },
   {
-    title: 'Cloud',
-    items: ['AWS (Basics)']
+    title: 'CS Fundamentals',
+    items: ['Data Structures & Algorithms (DSA)', 'Object-Oriented Programming (OOP)', 'DBMS', 'Computer Networks', 'System Design', 'Agile Methodology (Scrum)']
   },
   {
-    title: 'Tools',
-    items: ['Git', 'GitHub', 'Docker', 'VS Code']
-  },
-  {
-    title: 'Concepts',
-    items: ['Data Structures & Algorithms', 'Object-Oriented Programming', 'DBMS', 'Responsive Web Design', 'CRUD Operations', 'JWT Authentication']
+    title: 'Generative AI & ML',
+    items: ['Gemini LLM Integration', 'Custom RAG Pipeline', 'Embeddings', 'Vector Search']
   }
 ];
 
 const iconMap = {
   Python: { icon: 'fa-python', prefix: 'fa-brands' },
-  SQL: { icon: 'fa-database', prefix: 'fa-solid' },
   JavaScript: { icon: 'fa-js', prefix: 'fa-brands' },
+  SQL: { icon: 'fa-database', prefix: 'fa-solid' },
+  FastAPI: { icon: 'fa-bolt', prefix: 'fa-solid' },
+  'React.js': { icon: 'fa-react', prefix: 'fa-brands' },
+  'REST APIs': { icon: 'fa-network-wired', prefix: 'fa-solid' },
+  'JWT Authentication': { icon: 'fa-lock', prefix: 'fa-solid' },
+  Pydantic: { icon: 'fa-check-double', prefix: 'fa-solid' },
   'HTML5': { icon: 'fa-html5', prefix: 'fa-brands' },
   'CSS3': { icon: 'fa-css3-alt', prefix: 'fa-brands' },
-  'React.js': { icon: 'fa-react', prefix: 'fa-brands' },
-  'Next.js': { icon: 'fa-code', prefix: 'fa-solid' },
-  Flask: { icon: 'fa-flask', prefix: 'fa-solid' },
-  'Node.js': { icon: 'fa-node-js', prefix: 'fa-brands' },
-  'Express.js': { icon: 'fa-server', prefix: 'fa-solid' },
-  'REST APIs': { icon: 'fa-network-wired', prefix: 'fa-solid' },
-  MySQL: { icon: 'fa-database', prefix: 'fa-solid' },
   PostgreSQL: { icon: 'fa-database', prefix: 'fa-solid' },
-  'AWS (Basics)': { icon: 'fa-cloud', prefix: 'fa-solid' },
+  MySQL: { icon: 'fa-database', prefix: 'fa-solid' },
+  AWS: { icon: 'fa-cloud', prefix: 'fa-solid' },
+  Redis: { icon: 'fa-database', prefix: 'fa-solid' },
+  'Redis Streams': { icon: 'fa-stream', prefix: 'fa-solid' },
+  'Redis Pub/Sub': { icon: 'fa-tower-broadcast', prefix: 'fa-solid' },
   Git: { icon: 'fa-git-alt', prefix: 'fa-brands' },
   GitHub: { icon: 'fa-github', prefix: 'fa-brands' },
   Docker: { icon: 'fa-docker', prefix: 'fa-brands' },
-  'VS Code': { icon: 'fa-code', prefix: 'fa-solid' },
-  'Data Structures & Algorithms': { icon: 'fa-sitemap', prefix: 'fa-solid' },
-  'Object-Oriented Programming': { icon: 'fa-cubes', prefix: 'fa-solid' },
+  'CI/CD Pipelines': { icon: 'fa-arrows-rotate', prefix: 'fa-solid' },
+  'Data Structures & Algorithms (DSA)': { icon: 'fa-sitemap', prefix: 'fa-solid' },
+  'Object-Oriented Programming (OOP)': { icon: 'fa-cubes', prefix: 'fa-solid' },
   DBMS: { icon: 'fa-database', prefix: 'fa-solid' },
-  'Responsive Web Design': { icon: 'fa-mobile-screen', prefix: 'fa-solid' },
-  'CRUD Operations': { icon: 'fa-list-check', prefix: 'fa-solid' },
-  'JWT Authentication': { icon: 'fa-lock', prefix: 'fa-solid' }
+  'Computer Networks': { icon: 'fa-network-wired', prefix: 'fa-solid' },
+  'System Design': { icon: 'fa-diagram-project', prefix: 'fa-solid' },
+  'Agile Methodology (Scrum)': { icon: 'fa-users-gear', prefix: 'fa-solid' },
+  'Gemini LLM Integration': { icon: 'fa-wand-magic-sparkles', prefix: 'fa-solid' },
+  'Custom RAG Pipeline': { icon: 'fa-diagram-project', prefix: 'fa-solid' },
+  Embeddings: { icon: 'fa-vector-square', prefix: 'fa-solid' },
+  'Vector Search': { icon: 'fa-magnifying-glass', prefix: 'fa-solid' }
 };
 const TILT_CONFIG = { max: 10, speed: 400, glare: true, 'max-glare': 0.22 };
 

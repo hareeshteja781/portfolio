@@ -14,9 +14,10 @@ function EducationSection() {
           <p className="timeline-school">Malla Reddy College of Engineering</p>
           <p className="timeline-school">JNTUH</p>
           <div className="timeline-meta">
-            <span>Graduated 2026</span>
-            <span>CGPA 7.0 / 10</span>
+            <span>Graduation: May 2026</span>
+            <span>CGPA: 7.0 / 10.0</span>
           </div>
+          <p className="timeline-school">Relevant Coursework: Data Structures & Algorithms, Object-Oriented Programming, DBMS, Operating Systems, Computer Networks, Software Engineering.</p>
         </div>
       </div>
     </section>
